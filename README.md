@@ -1,0 +1,76 @@
+# UTN Stack
+
+Integer stack functions to practice stack in UTN (Universidad Tecnológica Nacional).
+
+## Type
+
+**Stack** is a stack of integer with a limit defined in `Stack.c` as `STACK_LIMIT` (`50` by default).
+
+```c
+Stack stackVariableName; // This creates the new Stack.
+```
+
+## Functions
+
+### stackInit: Initialize a Stack type variable
+
+```c
+Stack stack;
+stackInit(&stack); // Initialize stack variable of type Stack.
+```
+
+### stackAdd: Add a value to the stack
+
+```c
+Stack stack;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackAdd(&stack, 10); // The value 10 is added to the stack.
+```
+
+### stackRemove: Remove an element from the top of the stack
+
+```c
+Stack stack;
+int removedValue = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackAdd(&stack, 10); // The value 10 is added to the stack.
+removedValue = stackRemove(&stack); // The top is removed and returned to removedValue.
+```
+
+### stackTop: Return the current top of the stack
+
+```c
+Stack stack;
+int top = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackAdd(&stack, 10); // The value 10 is added to the stack.
+top = stackTop(stack); // The current top (10) is assigned to top.
+```
+
+### stackIsEmpty: Return 0 if is full and 1 if is empty
+
+```c
+Stack stack;
+int isEmpty = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+isEmpty = stackIsEmpty(stack); // isEmpty receives 1 because stack has no values.
+```
+
+### stackScan: Scan for stack (input values)
+
+```c
+Stack stack;
+int isEmpty = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
+```
+
+### stackPrint: Print all the values of the stack, and a message if is empty
+
+```c
+Stack stack;
+int isEmpty = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
+stackPrint(stack); // Display all the values of the stack.
+```
