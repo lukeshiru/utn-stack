@@ -1,9 +1,5 @@
 #include "Stack.h"
 
-#define STACK_LIMIT 50
-#define STACK_ITEM_SIZE 1
-#define STACK_INITIAL_TOP 0
-
 void stackInit(StackPointer stackPointer) {
 	int* values;
 	values = (int*)malloc(STACK_LIMIT * sizeof(int));

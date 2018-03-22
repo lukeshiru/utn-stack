@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define STACK_LIMIT 50
+#define STACK_ITEM_SIZE 1
+#define STACK_INITIAL_TOP 0
+
 #define Stack struct _Stack
 #define StackPointer struct _Stack*
 
