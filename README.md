@@ -1,6 +1,6 @@
 # UTN Stack
 
-Integer stack functions to practice stack in UTN (Universidad Tecnológica Nacional).
+Integer stack functions to practice stack in UTN (Universidad Tecnológica Nacional). For details about the transition from Spanish to English, checkout the file [TRANSITION.md](./TRANSITION.md).
 
 ## Type
 
