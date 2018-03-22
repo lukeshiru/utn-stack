@@ -12,14 +12,18 @@ Stack stackVariableName; // This creates the new Stack.
 
 ## Functions
 
-### stackInit: Initialize a Stack type variable
+### stackInit(&stackPointer)
+
+Initialize a Stack type variable.
 
 ```c
 Stack stack;
 stackInit(&stack); // Initialize stack variable of type Stack.
 ```
 
-### stackAdd: Add a value to the stack
+### stackAdd(&stackPointer, value)
+
+Add a value to the stack.
 
 ```c
 Stack stack;
@@ -27,7 +31,9 @@ stackInit(&stack); // Initialize stack variable of type Stack.
 stackAdd(&stack, 10); // The value 10 is added to the stack.
 ```
 
-### stackRemove: Remove an element from the top of the stack
+### stackRemove(&stackPointer)
+
+Remove an element from the top of the stack.
 
 ```c
 Stack stack;
@@ -37,7 +43,9 @@ stackAdd(&stack, 10); // The value 10 is added to the stack.
 removedValue = stackRemove(&stack); // The top is removed and returned to removedValue.
 ```
 
-### stackTop: Return the current top of the stack
+### stackTop(stack)
+
+Return the current top of the stack.
 
 ```c
 Stack stack;
@@ -47,7 +55,9 @@ stackAdd(&stack, 10); // The value 10 is added to the stack.
 top = stackTop(stack); // The current top (10) is assigned to top.
 ```
 
-### stackIsEmpty: Return 0 if is full and 1 if is empty
+### stackIsEmpty(stack)
+
+Return 0 if is full and 1 if is empty.
 
 ```c
 Stack stack;
@@ -56,7 +66,9 @@ stackInit(&stack); // Initialize stack variable of type Stack.
 isEmpty = stackIsEmpty(stack); // isEmpty receives 1 because stack has no values.
 ```
 
-### stackScan: Scan for stack (input values)
+### stackScan(&stackPointer)
+
+Scan for stack (input values).
 
 ```c
 Stack stack;
@@ -65,7 +77,9 @@ stackInit(&stack); // Initialize stack variable of type Stack.
 stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
 ```
 
-### stackPrint: Print all the values of the stack, and a message if is empty
+### stackPrint(stack)
+
+Print all the values of the stack, and a message if is empty.
 
 ```c
 Stack stack;
