@@ -1,3 +1,6 @@
+#ifndef INCLUDED_STACK_H
+#define INCLUDED_STACK_H
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -20,3 +23,5 @@ int stackTop(Stack stack);
 int stackIsEmpty(Stack stack);
 void stackScan(StackPointer stackPointer);
 void stackPrint(Stack stack);
+
+#endif // INCLUDED_STACK_H
