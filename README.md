@@ -2,9 +2,13 @@
 
 Integer stack functions to practice stack in UTN (Universidad Tecnológica Nacional). For details about the transition from Spanish to English, checkout the file [TRANSITION.md](./TRANSITION.md).
 
+## Download
+
+To download you can clone the repository, or you can [click here](https://github.com/lukeshiru/utn-stack/archive/master.zip) for the zip version.
+
 ## Type
 
-**Stack** is a stack of integer with a limit defined in `Stack.c` as `STACK_LIMIT` (`50` by default).
+**Stack** is a stack of integer with a limit defined in `Stack.h` as `STACK_LIMIT` (`50` by default).
 
 ```c
 Stack stackVariableName; // This creates the new Stack.
