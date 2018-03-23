@@ -43,7 +43,7 @@ void stackPrint(Stack stack) {
 	if (stackIsEmpty(stack)) {
 		printf("\n\nStack is empty.\n\n");
 	} else {
-		printf("\n\nStack elements (%d/%d):\n\n| ", stack.top, STACK_LIMIT);
+		printf("\n\nStack elements (%d/%d):\n| ", stack.top, STACK_LIMIT);
 		while (index < stack.top) {
 			printf("%d | ", stack.values[index++]);
 		}
