@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // Include guard
 #ifndef STACK_DEFINED
@@ -14,26 +14,20 @@
 // Starting point of the stack
 #define STACK_INITIAL_TOP 0
 
-// Stack type
-#define Stack struct _Stack
-
-// Stack pointer type
-#define StackPointer struct _Stack*
-
 // Stack struct
-struct _Stack {
+typedef struct Stack {
 	int* values;
 	int top;
-};
+} Stack;
 
 // Stack initialization
-void stackInit(StackPointer stackPointer);
+void stackInit(Stack* stackPointer);
 
 // Add element to stack
-void stackAdd(StackPointer stackPointer, int value);
+void stackAdd(Stack* stackPointer, int value);
 
 // Remove element from stack and return it
-int stackRemove(StackPointer stackPointer);
+int stackRemove(Stack* stackPointer);
 
 // Get the top of the stack
 int stackTop(Stack stack);
@@ -42,7 +36,7 @@ int stackTop(Stack stack);
 int stackIsEmpty(Stack stack);
 
 // Prints a message and scans a value to the stack
-void stackScan(StackPointer stackPointer);
+void stackScan(Stack* stackPointer);
 
 // Prints the content of the stack
 void stackPrint(Stack stack);

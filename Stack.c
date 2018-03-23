@@ -1,19 +1,19 @@
 #include "Stack.h"
 
-void stackInit(StackPointer stackPointer) {
+void stackInit(Stack* stackPointer) {
 	int* values;
 	values = (int*)malloc(STACK_LIMIT * sizeof(int));
 	stackPointer->values = values;
 	stackPointer->top = STACK_INITIAL_TOP;
 }
 
-void stackAdd(StackPointer stackPointer, int value) {
+void stackAdd(Stack* stackPointer, int value) {
 	int index = (*stackPointer).top;
 	(*stackPointer).values[index] = value;
 	(*stackPointer).top = (*stackPointer).top + STACK_ITEM_SIZE;
 }
 
-int stackRemove(StackPointer stackPointer) {
+int stackRemove(Stack* stackPointer) {
 	int removedValue = stackPointer->values[stackPointer->top - STACK_ITEM_SIZE];
 	stackPointer->top -= STACK_ITEM_SIZE;
 	return removedValue;
@@ -27,7 +27,7 @@ int stackIsEmpty(Stack stack) {
 	return (stack.top == STACK_INITIAL_TOP);
 }
 
-void stackScan(StackPointer stackPointer) {
+void stackScan(Stack* stackPointer) {
 	int value = 0;
 	if (stackPointer->top < STACK_LIMIT) {
 		printf("Input an integer value: ");
