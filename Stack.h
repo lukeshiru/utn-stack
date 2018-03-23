@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 // Include guard
 #ifndef STACK_DEFINED
@@ -33,7 +34,7 @@ int stackRemove(Stack* stackPointer);
 int stackTop(Stack stack);
 
 // Check if stack is empty
-int stackIsEmpty(Stack stack);
+bool stackIsEmpty(Stack stack);
 
 // Prints a message and scans a value to the stack
 void stackScan(Stack* stackPointer);

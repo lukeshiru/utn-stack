@@ -23,8 +23,8 @@ int stackTop(Stack stack) {
 	return stack.values[stack.top - STACK_ITEM_SIZE];
 }
 
-int stackIsEmpty(Stack stack) {
-	return (stack.top == STACK_INITIAL_TOP);
+bool stackIsEmpty(Stack stack) {
+	return (stack.top == STACK_INITIAL_TOP) ? true : false;
 }
 
 void stackScan(Stack* stackPointer) {
