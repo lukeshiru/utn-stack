@@ -37,7 +37,10 @@ int stackTop(Stack stack);
 bool stackIsEmpty(Stack stack);
 
 // Prints a message and scans a value to the stack
-void stackScan(Stack* stackPointer);
+bool stackScan(Stack* stackPointer);
+
+// Loops stackScan until exit
+void stackScanLoop(Stack* stackPointer);
 
 // Prints the content of the stack
 void stackPrint(Stack stack);

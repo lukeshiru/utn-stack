@@ -81,6 +81,17 @@ stackInit(&stack); // Initialize stack variable of type Stack.
 stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
 ```
 
+### stackScanLoop(&stackPointer)
+
+Scan for stack (input values) with a loop asking to continue or not.
+
+```c
+Stack stack;
+int isEmpty = 0;
+stackInit(&stack); // Initialize stack variable of type Stack.
+stackScanLoop(&stack); // Loops stackScan until user exit.
+```
+
 ### stackPrint(stack)
 
 Print all the values of the stack, and a message if is empty.
