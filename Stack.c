@@ -5,7 +5,7 @@ void stackInit(Stack* stackPointer) {
 	stackPointer->top = STACK_INITIAL_TOP;
 }
 
-void stackAdd(Stack* stackPointer, int value) {
+void stackAdd(Stack* stackPointer, const int value) {
 	(*stackPointer).values[(*stackPointer).top] = value;
 	(*stackPointer).top = (*stackPointer).top + STACK_ITEM_SIZE;
 }
@@ -16,11 +16,11 @@ int stackRemove(Stack* stackPointer) {
 	return value;
 }
 
-int stackTop(Stack stack) {
+int stackTop(const Stack stack) {
 	return stack.values[stack.top - STACK_ITEM_SIZE];
 }
 
-bool stackIsEmpty(Stack stack) {
+bool stackIsEmpty(const Stack stack) {
 	return (stack.top == STACK_INITIAL_TOP) ? true : false;
 }
 
@@ -53,7 +53,7 @@ void stackScanLoop(Stack* stackPointer) {
 	}
 }
 
-void stackPrint(Stack stack) {
+void stackPrint(const Stack stack) {
 	int index = STACK_INITIAL_TOP;
 	if (stackIsEmpty(stack)) {
 		printf("\n\nStack is empty.\n\n");

@@ -25,16 +25,16 @@ typedef struct Stack {
 void stackInit(Stack* stackPointer);
 
 // Add element to stack
-void stackAdd(Stack* stackPointer, int value);
+void stackAdd(Stack* stackPointer, const int value);
 
 // Remove element from stack and return it
 int stackRemove(Stack* stackPointer);
 
 // Get the top of the stack
-int stackTop(Stack stack);
+int stackTop(const Stack stack);
 
 // Check if stack is empty
-bool stackIsEmpty(Stack stack);
+bool stackIsEmpty(const Stack stack);
 
 // Prints a message and scans a value to the stack
 bool stackScan(Stack* stackPointer);
@@ -43,6 +43,6 @@ bool stackScan(Stack* stackPointer);
 void stackScanLoop(Stack* stackPointer);
 
 // Prints the content of the stack
-void stackPrint(Stack stack);
+void stackPrint(const Stack stack);
 
 #endif // STACK_DEFINED
