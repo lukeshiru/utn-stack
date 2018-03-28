@@ -34,7 +34,7 @@ bool stackScan(Stack* stackPointer) {
 		stackAdd(stackPointer, value);
 		success = true;
 	} else {
-		printf("Error: The Stack is full, limit is set to %d.", STACK_LIMIT);
+		printf("\nError: The Stack is full, limit is set to %d.\n", STACK_LIMIT);
 		success = false;
 	}
 	return success;
