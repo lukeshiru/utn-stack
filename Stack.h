@@ -3,8 +3,8 @@
 #include <stdbool.h>
 
 // Include guard
-#ifndef STACK_DEFINED
-#define STACK_DEFINED
+#ifndef STACK_H
+#define STACK_H
 
 // Upper length limit of a stack
 #define STACK_LIMIT 50
@@ -45,4 +45,4 @@ void stackScanLoop(Stack* stackPointer);
 // Prints the content of the stack
 void stackPrint(const Stack stack);
 
-#endif // STACK_DEFINED
+#endif // STACK_H
