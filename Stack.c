@@ -28,14 +28,14 @@ bool stackScan(Stack* stackPointer) {
 	int value = 0;
 	bool success = true;
 	if (stackPointer->top < STACK_LIMIT) {
-		printf("Input an integer value: ");
+		fputs("Input an integer value: ", stdout);
 		fflush(stdin);
 		scanf(" %d", &value);
 		stackAdd(stackPointer, value);
-		bool success = true;
+		success = true;
 	} else {
 		printf("Error: The Stack is full, limit is set to %d.", STACK_LIMIT);
-		bool success = false;
+		success = false;
 	}
 	return success;
 }
@@ -46,7 +46,7 @@ void stackScanLoop(Stack* stackPointer) {
 	while ((answer == 'y' || answer == '\n') && success) {
 		success = stackScan(stackPointer);
 		if (success) {
-			printf("Continue? [y/n] ");
+			fputs("Continue? [y/n] ", stdout);
 			fseek(stdin, 0, SEEK_END);
 			answer = getchar();
 		}
@@ -56,12 +56,12 @@ void stackScanLoop(Stack* stackPointer) {
 void stackPrint(const Stack stack) {
 	int index = STACK_INITIAL_TOP;
 	if (stackIsEmpty(stack)) {
-		printf("\n\nStack is empty.\n\n");
+		puts("\n\nStack is empty.\n");
 	} else {
 		printf("\n\nStack elements (%d/%d):\n| ", stack.top, STACK_LIMIT);
 		while (index < stack.top) {
 			printf("%d | ", stack.values[index++]);
 		}
-		printf("\n\n");
+		puts("\n");
 	}
 }
