@@ -16,7 +16,7 @@
 /**
  * @brief Base Stack structure and type definition.
  */
-typedef struct Stack {
+typedef struct {
 	int* values;
 	int top;
 } Stack;
