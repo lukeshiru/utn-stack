@@ -1,48 +1,89 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-// Include guard
-#ifndef STACK_H
+#ifndef STACK_H  // Include guard
 #define STACK_H
 
-// Upper length limit of a stack
-#define STACK_LIMIT 50
+/* Settings *******************************************************************/
 
-// Size of every stack item (for increment/decrement)
-#define STACK_ITEM_SIZE 1
+#define STACK_LIMIT 50       // Upper length limit of a stack
+#define STACK_ITEM_SIZE 1    // Size of every stack item (for increment/decrement)
+#define STACK_INITIAL_TOP 0  // Starting point of the stack
 
-// Starting point of the stack
-#define STACK_INITIAL_TOP 0
+/* Types **********************************************************************/
 
-// Stack struct
+/**
+ * @brief Base Stack structure and type definition.
+ */
 typedef struct Stack {
 	int* values;
 	int top;
 } Stack;
 
-// Stack initialization
+/* Functions ******************************************************************/
+
+/**
+ * @brief Stack initialization.
+ *
+ * @param stackPointer Stack to be initialized.
+ */
 void stackInit(Stack* stackPointer);
 
-// Add element to stack
+/**
+ * @brief Add element to stack.
+ *
+ * @param stackPointer Target Stack.
+ * @param value Value to be added.
+ */
 void stackAdd(Stack* stackPointer, const int value);
 
-// Remove element from stack and return it
+/**
+ * @brief Remove element from stack and return it.
+ *
+ * @param stackPointer Target Stack.
+ * @return int Removed value.
+ */
 int stackRemove(Stack* stackPointer);
 
-// Get the top of the stack
+/**
+ * @brief Get the top of the stack.
+ *
+ * @param stack Target Stack.
+ * @return int Value in top of the stack.
+ */
 int stackTop(const Stack stack);
 
-// Check if stack is empty
+/**
+ * @brief Check if stack is empty.
+ *
+ * @param stack Stack to be checked.
+ * @return true Stack is empty.
+ * @return false Stack has items.
+ */
 bool stackIsEmpty(const Stack stack);
 
-// Prints a message and scans a value to the stack
+/**
+ * @brief Prints a message and scans a value to the stack.
+ *
+ * @param stackPointer Target Stack.
+ * @return true Stack has space.
+ * @return false Stack is full.
+ */
 bool stackScan(Stack* stackPointer);
 
-// Loops stackScan until exit
+/**
+ * @brief Loops stackScan until exit
+ *
+ * @param stackPointer Target Stack.
+ */
 void stackScanLoop(Stack* stackPointer);
 
-// Prints the content of the stack
+/**
+ * @brief Prints the content of the stack
+ *
+ * @param stack Target Stack.
+ */
 void stackPrint(const Stack stack);
 
-#endif // STACK_H
+#endif  // STACK_H
