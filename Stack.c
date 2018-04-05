@@ -1,18 +1,23 @@
 #include "Stack.h"
 
-void stackInit(Stack* stackPointer) {
+Stack* stackInit(Stack* stackPointer) {
 	stackPointer->values = (int*)malloc(STACK_LIMIT * sizeof(int));
 	stackPointer->top = STACK_INITIAL_TOP;
+
+	return stackPointer;
 }
 
-void stackAdd(Stack* stackPointer, const int value) {
+Stack* stackAdd(Stack* stackPointer, const int value) {
 	(*stackPointer).values[(*stackPointer).top] = value;
 	(*stackPointer).top = (*stackPointer).top + STACK_ITEM_SIZE;
+
+	return stackPointer;
 }
 
 int stackRemove(Stack* stackPointer) {
 	int value = stackPointer->values[stackPointer->top - STACK_ITEM_SIZE];
 	stackPointer->top -= STACK_ITEM_SIZE;
+
 	return value;
 }
 
@@ -37,10 +42,11 @@ bool stackScan(Stack* stackPointer) {
 		printf("\nError: The Stack is full, limit is set to %d.\n", STACK_LIMIT);
 		success = false;
 	}
+
 	return success;
 }
 
-void stackScanLoop(Stack* stackPointer) {
+Stack* stackScanLoop(Stack* stackPointer) {
 	char answer = 'y';
 	bool success = true;
 	while ((answer == 'y' || answer == '\n') && success) {
@@ -51,6 +57,8 @@ void stackScanLoop(Stack* stackPointer) {
 			answer = getchar();
 		}
 	}
+
+	return stackPointer;
 }
 
 void stackPrint(const Stack stack) {
