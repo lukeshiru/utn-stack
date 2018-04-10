@@ -5,48 +5,44 @@
 #ifndef STACK_H  // Include guard
 #define STACK_H
 
-/* Settings *******************************************************************/
-
-#define STACK_LIMIT 50       // Upper length limit of a stack
-#define STACK_ITEM_SIZE 1    // Size of every stack item (for increment/decrement)
-#define STACK_INITIAL_TOP 0  // Starting point of the stack
-
 /* Types **********************************************************************/
 
 /**
  * @brief Base Stack structure and type definition.
  */
 typedef struct {
+	bool empty;
+	int length;
+	int limit;
 	int* values;
-	int top;
 } Stack;
 
 /* Functions ******************************************************************/
 
 /**
- * @brief Stack initialization.
+ * @brief Stack creation.
  *
- * @param stackPointer Stack to be initialized.
- * @return Stack* Initialized Stack.
+ * @param limit Limit of the stack.
+ * @return Stack New stack.
  */
-Stack* stackInit(Stack* stackPointer);
+Stack stackCreate(const int limit);
 
 /**
  * @brief Add element to stack.
  *
- * @param stackPointer Target Stack.
+ * @param stack Target Stack.
  * @param value Value to be added.
- * @return Stack* Target Stack.
+ * @return Stack Stack with new value.
  */
-Stack* stackAdd(Stack* stackPointer, const int value);
+Stack stackAdd(Stack stack, const int value);
 
 /**
  * @brief Remove element from stack and return it.
  *
- * @param stackPointer Target Stack.
- * @return int Removed value.
+ * @param stack Target Stack.
+ * @return Stack Stack with one less value.
  */
-int stackRemove(Stack* stackPointer);
+Stack stackRemove(Stack stack);
 
 /**
  * @brief Get the top of the stack.
@@ -57,30 +53,20 @@ int stackRemove(Stack* stackPointer);
 int stackTop(const Stack stack);
 
 /**
- * @brief Check if stack is empty.
- *
- * @param stack Stack to be checked.
- * @return true Stack is empty.
- * @return false Stack has items.
- */
-bool stackIsEmpty(const Stack stack);
-
-/**
  * @brief Prints a message and scans a value to the stack.
  *
- * @param stackPointer Target Stack.
- * @return true Stack has space.
- * @return false Stack is full.
+ * @param Stack Target stack.
+ * @return Stack Stack with new value.
  */
-bool stackScan(Stack* stackPointer);
+Stack stackScan(Stack stack);
 
 /**
- * @brief Loops stackScan until exit
+ * @brief Loops stackScan until exit.
  *
  * @param stackPointer Target Stack.
  * @return Stack* Target Stack.
  */
-Stack* stackScanLoop(Stack* stackPointer);
+Stack stackLoad(Stack stack);
 
 /**
  * @brief Prints the content of the stack
