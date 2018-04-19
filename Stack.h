@@ -13,7 +13,6 @@
 typedef struct {
 	bool empty;
 	int length;
-	int limit;
 	int* values;
 } Stack;
 
@@ -22,10 +21,9 @@ typedef struct {
 /**
  * @brief Stack creation.
  *
- * @param limit Limit of the stack.
  * @return Stack New stack.
  */
-Stack stackCreate(const int limit);
+Stack stackCreate();
 
 /**
  * @brief Add element to stack.

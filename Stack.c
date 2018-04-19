@@ -1,19 +1,21 @@
 #include "Stack.h"
 
-Stack stackCreate(const int limit) {
+Stack stackCreate() {
 	Stack stack;
 
 	stack.empty = true;
 	stack.length = 0;
-	stack.limit = limit <= 0 ? 1 : limit;
-	stack.values = calloc(limit, sizeof(int));
+	stack.values = calloc(stack.length, sizeof(int));
 
 	return stack;
 }
 
 Stack stackAdd(Stack stack, const int value) {
+	const newLength = stack.length + 1;
+
+	stack.values = realloc(stack.values, sizeof(int) * newLength);
 	stack.values[stack.length] = value;
-	stack.length = stack.length + 1;
+	stack.length = newLength;
 	stack.empty = false;
 
 	return stack;
@@ -32,29 +34,23 @@ int stackTop(const Stack stack) {
 
 Stack stackScan(Stack stack) {
 	int value = 0;
-	bool success = true;
 
-	if (stack.length < stack.limit) {
-		fputs("Input an integer value: ", stdout);
-		fflush(stdin);
-		scanf(" %d", &value);
-		stack = stackAdd(stack, value);
-		success = true;
-	}
+	fputs("Input an integer value: ", stdout);
+	fflush(stdin);
+	scanf(" %d", &value);
+	stack = stackAdd(stack, value);
 
 	return stack;
 }
 
 Stack stackLoad(Stack stack) {
 	char answer = 'y';
-	while ((answer == 'y' || answer == '\n') && stack.length < stack.limit) {
+
+	while (answer == 'y' || answer == '\n') {
 		stack = stackScan(stack);
 		fputs("Continue? [y/n] ", stdout);
 		fseek(stdin, 0, SEEK_END);
 		answer = getchar();
-	}
-	if (stack.length >= stack.limit) {
-		fputs("Error: Stack is full.", stdout);
 	}
 
 	return stack;
@@ -65,7 +61,7 @@ void stackPrint(const Stack stack) {
 	if (stack.empty) {
 		puts("\nStack is empty.\n");
 	} else {
-		printf("\nStack elements (%d/%d):\n| ", stack.length, stack.limit);
+		printf("\nStack elements (%d):\n| ", stack.length);
 		while (index < stack.length) {
 			printf("%d | ", stack.values[index++]);
 		}
