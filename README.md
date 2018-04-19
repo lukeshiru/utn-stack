@@ -8,43 +8,62 @@ To download you can clone the repository, or you can [click here](https://github
 
 ## Type
 
-**Stack** is a stack of integer with a limit defined in `Stack.h` as `STACK_LIMIT` (`50` by default).
+**Stack** is a stack of integer without a limit.
 
 ```c
 Stack stackVariableName; // This creates the new Stack.
 ```
 
+## Properties
+
+### stack.empty
+
+Return false if it has elements and true if is empty.
+
+```c
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
+int isEmpty = 0;
+isEmpty = stack.empty; // isEmpty receives true because stack has no values.
+```
+
+### stack.length
+
+Current length of the array.
+
+```c
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
+int stackLength = 0;
+stackLength = stack.length; // stackLength receives 0 because default length.
+```
+
 ## Functions
 
-### stackInit(&stackPointer)
+### stackCreate()
 
 Initialize a Stack type variable.
 
 ```c
-Stack stack;
-stackInit(&stack); // Initialize stack variable of type Stack.
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 ```
 
-### stackAdd(&stackPointer, value)
+### stackAdd(stack, value)
 
 Add a value to the stack.
 
 ```c
-Stack stack;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackAdd(&stack, 10); // The value 10 is added to the stack.
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
+stack = stackAdd(stack, 10); // The value 10 is added to the stack.
 ```
 
-### stackRemove(&stackPointer)
+### stackRemove(stack)
 
 Remove an element from the top of the stack.
 
 ```c
-Stack stack;
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 int removedValue = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackAdd(&stack, 10); // The value 10 is added to the stack.
-removedValue = stackRemove(&stack); // The top is removed and returned to removedValue.
+stack = stackAdd(stack, 10); // The value 10 is added to the stack.
+stack = stackRemove(stack); // The top is removed and returned to removedValue.
 ```
 
 ### stackTop(stack)
@@ -52,44 +71,30 @@ removedValue = stackRemove(&stack); // The top is removed and returned to remove
 Return the current top of the stack.
 
 ```c
-Stack stack;
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 int top = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackAdd(&stack, 10); // The value 10 is added to the stack.
+stack = stackAdd(stack, 10); // The value 10 is added to the stack.
 top = stackTop(stack); // The current top (10) is assigned to top.
 ```
 
-### stackIsEmpty(stack)
-
-Return 0 if is full and 1 if is empty.
-
-```c
-Stack stack;
-int isEmpty = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-isEmpty = stackIsEmpty(stack); // isEmpty receives 1 because stack has no values.
-```
-
-### stackScan(&stackPointer)
+### stackScan(stack)
 
 Scan for stack (input values).
 
 ```c
-Stack stack;
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 int isEmpty = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
+stack = stackScan(stack); // Displays an input message and stores the given value with stackAdd.
 ```
 
-### stackScanLoop(&stackPointer)
+### stackLoad(stack)
 
 Scan for stack (input values) with a loop asking to continue or not.
 
 ```c
-Stack stack;
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 int isEmpty = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackScanLoop(&stack); // Loops stackScan until user exit.
+stack = stackLoad(stack); // Loops stackScan until user exit.
 ```
 
 ### stackPrint(stack)
@@ -97,9 +102,8 @@ stackScanLoop(&stack); // Loops stackScan until user exit.
 Print all the values of the stack, and a message if is empty.
 
 ```c
-Stack stack;
+Stack stack = stackCreate(); // Initialize stack variable of type Stack.
 int isEmpty = 0;
-stackInit(&stack); // Initialize stack variable of type Stack.
-stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
+stack = stackScan(stack); // Displays an input message and stores the given value with stackAdd.
 stackPrint(stack); // Display all the values of the stack.
 ```
