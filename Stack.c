@@ -11,7 +11,7 @@ Stack stackCreate() {
 }
 
 Stack stackAdd(Stack stack, const int value) {
-	const newLength = stack.length + 1;
+	const int newLength = stack.length + 1;
 
 	stack.values = realloc(stack.values, sizeof(int) * newLength);
 	stack.values[stack.length] = value;

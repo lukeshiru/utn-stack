@@ -16,11 +16,11 @@ Pila pila1, pila2, pila3; -> Stack stack1, stack2, stack3;
 ## Functions
 
 ```plain
-inicpila(&pila) -> stackInit(&stackPointer)
-apilar(&pila, dato) -> stackAdd(&stackPointer, value)
-desapilar(&pila) -> stackRemove(&stackPointer)
+inicpila(&pila) -> stackCreate()
+apilar(&pila, dato) -> stackAdd(stack, value)
+desapilar(&pila) -> stackRemove(stack)
 tope(&pila) -> stackTop(stack)
-pilavacia(&pila) -> stackIsEmpty(stack)
-leer (&pila) -> stackScan(&stackPointer)
+pilavacia(&pila) -> stack.empty
+leer (&pila) -> stackScan(stack)
 mostrar(&pila) -> stackPrint(stack)
 ```
