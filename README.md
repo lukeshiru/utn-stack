@@ -8,7 +8,7 @@ To download you can clone the repository, or you can [click here](https://github
 
 ## Type
 
-**Stack** is a stack of integer with a limit defined in `Stack.h` as `STACK_LIMIT` (`50` by default).
+**Stack** is a stack of integer with unlimited size.
 
 ```c
 Stack stackVariableName; // This creates the new Stack.

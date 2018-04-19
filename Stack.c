@@ -44,8 +44,9 @@ void stackScan(Stack* stackPointer) {
 Stack* stackScanLoop(Stack* stackPointer) {
 	char answer = 'y';
 	bool success = true;
-	while ((answer == 'y' || answer == '\n') && success) {
-		success = stackScan(stackPointer);
+
+	while (answer == 'y' || answer == '\n') {
+		stackScan(stackPointer);
 		if (success) {
 			fputs("Continue? [y/n] ", stdout);
 			fseek(stdin, 0, SEEK_END);
