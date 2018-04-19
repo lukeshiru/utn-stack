@@ -7,7 +7,6 @@
 
 /* Settings *******************************************************************/
 
-#define STACK_LIMIT 50       // Upper length limit of a stack
 #define STACK_ITEM_SIZE 1    // Size of every stack item (for increment/decrement)
 #define STACK_INITIAL_TOP 0  // Starting point of the stack
 
@@ -69,10 +68,8 @@ bool stackIsEmpty(const Stack stack);
  * @brief Prints a message and scans a value to the stack.
  *
  * @param stackPointer Target Stack.
- * @return true Stack has space.
- * @return false Stack is full.
  */
-bool stackScan(Stack* stackPointer);
+void stackScan(Stack* stackPointer);
 
 /**
  * @brief Loops stackScan until exit

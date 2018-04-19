@@ -1,15 +1,18 @@
 #include "Stack.h"
 
 Stack* stackInit(Stack* stackPointer) {
-	stackPointer->values = (int*)malloc(STACK_LIMIT * sizeof(int));
 	stackPointer->top = STACK_INITIAL_TOP;
+	stackPointer->values = calloc(stackPointer->top, sizeof(int));
 
 	return stackPointer;
 }
 
 Stack* stackAdd(Stack* stackPointer, const int value) {
+	const int newTop = (*stackPointer).top + STACK_ITEM_SIZE;
+
+	(*stackPointer).values = realloc((*stackPointer).values, sizeof(int) * newTop);
 	(*stackPointer).values[(*stackPointer).top] = value;
-	(*stackPointer).top = (*stackPointer).top + STACK_ITEM_SIZE;
+	(*stackPointer).top = newTop;
 
 	return stackPointer;
 }
@@ -29,21 +32,13 @@ bool stackIsEmpty(const Stack stack) {
 	return (stack.top == STACK_INITIAL_TOP) ? true : false;
 }
 
-bool stackScan(Stack* stackPointer) {
+void stackScan(Stack* stackPointer) {
 	int value = 0;
-	bool success = true;
-	if (stackPointer->top < STACK_LIMIT) {
-		fputs("Input an integer value: ", stdout);
-		fflush(stdin);
-		scanf(" %d", &value);
-		stackAdd(stackPointer, value);
-		success = true;
-	} else {
-		printf("\nError: The Stack is full, limit is set to %d.\n", STACK_LIMIT);
-		success = false;
-	}
 
-	return success;
+	fputs("Input an integer value: ", stdout);
+	fflush(stdin);
+	scanf(" %d", &value);
+	stackAdd(stackPointer, value);
 }
 
 Stack* stackScanLoop(Stack* stackPointer) {
@@ -66,7 +61,7 @@ void stackPrint(const Stack stack) {
 	if (stackIsEmpty(stack)) {
 		puts("\n\nStack is empty.\n");
 	} else {
-		printf("\n\nStack elements (%d/%d):\n| ", stack.top, STACK_LIMIT);
+		printf("\n\nStack elements (%d):\n| ", stack.top);
 		while (index < stack.top) {
 			printf("%d | ", stack.values[index++]);
 		}
