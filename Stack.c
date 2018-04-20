@@ -59,12 +59,13 @@ Stack stackLoad(Stack stack) {
 void stackPrint(const Stack stack) {
 	int index = 0;
 	if (stack.empty) {
-		puts("\nStack is empty.\n");
+		puts("Stack (0) [ ]\n");
 	} else {
-		printf("\nStack elements (%d):\n| ", stack.length);
-		while (index < stack.length) {
-			printf("%d | ", stack.values[index++]);
+		const int length = stack.length;
+		printf("Stack (%d) [ ", length);
+		while (index < length) {
+			printf("%d%s", stack.values[index], index < length - 1 ? ", " : " ]\n");
+			index += 1;
 		}
-		puts("\n");
 	}
 }
