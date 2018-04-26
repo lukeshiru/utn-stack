@@ -23,6 +23,7 @@ Stack stackAdd(Stack stack, const int value) {
 
 Stack stackRemove(Stack stack) {
 	stack.length -= stack.empty ? 0 : 1;
+	stack.values = stack.empty ? stack.values : realloc(stack.values, sizeof(int) * stack.length);
 	stack.empty = (stack.length <= 0);
 
 	return stack;

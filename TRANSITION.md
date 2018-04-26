@@ -1,5 +1,13 @@
 # From Spanish to English
 
+## Limits
+
+The Spanish lib has a limit of 50 elements, this implementation is limitless.
+
+## Changes
+
+This version is immutable, what means that the functions are pure (never change the value of the stack, just return a new one).
+
 ## Including
 
 ```plain
