@@ -22,7 +22,7 @@ Return false if it has elements and true if is empty.
 
 ```c
 Stack stack = stackCreate(); // Initialize stack variable of type Stack.
-int isEmpty = 0;
+bool isEmpty = false;
 isEmpty = stack.empty; // isEmpty receives true because stack has no values.
 ```
 
@@ -83,7 +83,6 @@ Scan for stack (input values).
 
 ```c
 Stack stack = stackCreate(); // Initialize stack variable of type Stack.
-int isEmpty = 0;
 stack = stackScan(stack); // Displays an input message and stores the given value with stackAdd.
 ```
 
@@ -93,7 +92,6 @@ Scan for stack (input values) with a loop asking to continue or not.
 
 ```c
 Stack stack = stackCreate(); // Initialize stack variable of type Stack.
-int isEmpty = 0;
 stack = stackLoad(stack); // Loops stackScan until user exit.
 ```
 
@@ -103,7 +101,6 @@ Print all the values of the stack, and a message if is empty.
 
 ```c
 Stack stack = stackCreate(); // Initialize stack variable of type Stack.
-int isEmpty = 0;
 stack = stackScan(stack); // Displays an input message and stores the given value with stackAdd.
 stackPrint(stack); // Display all the values of the stack.
 ```
