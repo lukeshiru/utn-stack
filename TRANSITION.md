@@ -1,5 +1,9 @@
 # From Spanish to English
 
+## Limits
+
+The Spanish lib has a limit of 50 elements, this implementation is limitless.
+
 ## Including
 
 ```plain
