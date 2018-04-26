@@ -61,11 +61,11 @@ top = stackTop(stack); // The current top (10) is assigned to top.
 
 ### stackIsEmpty(stack)
 
-Return 0 if is full and 1 if is empty.
+Return false if is full and true if is empty.
 
 ```c
 Stack stack;
-int isEmpty = 0;
+bool isEmpty = false;
 stackInit(&stack); // Initialize stack variable of type Stack.
 isEmpty = stackIsEmpty(stack); // isEmpty receives 1 because stack has no values.
 ```
@@ -76,7 +76,6 @@ Scan for stack (input values).
 
 ```c
 Stack stack;
-int isEmpty = 0;
 stackInit(&stack); // Initialize stack variable of type Stack.
 stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
 ```
@@ -87,7 +86,6 @@ Scan for stack (input values) with a loop asking to continue or not.
 
 ```c
 Stack stack;
-int isEmpty = 0;
 stackInit(&stack); // Initialize stack variable of type Stack.
 stackScanLoop(&stack); // Loops stackScan until user exit.
 ```
@@ -98,7 +96,6 @@ Print all the values of the stack, and a message if is empty.
 
 ```c
 Stack stack;
-int isEmpty = 0;
 stackInit(&stack); // Initialize stack variable of type Stack.
 stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
 stackPrint(stack); // Display all the values of the stack.
