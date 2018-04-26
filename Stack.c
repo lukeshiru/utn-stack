@@ -5,6 +5,10 @@ void stackInit(Stack* stackPointer) {
 	stackPointer->values = calloc(stackPointer->top, sizeof(int));
 }
 
+bool stackIsEmpty(const Stack stack) {
+	return (stack.top == STACK_INITIAL_TOP) ? true : false;
+}
+
 void stackAdd(Stack* stackPointer, const int value) {
 	const int newTop = stackPointer->top + STACK_ITEM_SIZE;
 
@@ -15,18 +19,16 @@ void stackAdd(Stack* stackPointer, const int value) {
 
 int stackRemove(Stack* stackPointer) {
 	int value = stackPointer->values[stackPointer->top - STACK_ITEM_SIZE];
-	stackPointer->top -= STACK_ITEM_SIZE;
-	stackPointer->values = realloc(stackPointer->values, sizeof(int) * stackPointer->top);
+	stackPointer->top -= stackIsEmpty(*stackPointer) ? 0 : STACK_ITEM_SIZE;
+	stackPointer->values = stackIsEmpty(*stackPointer)
+		? stackPointer->values
+		: realloc(stackPointer->values, sizeof(int) * stackPointer->top);
 
 	return value;
 }
 
 int stackTop(const Stack stack) {
 	return stack.values[stack.top - STACK_ITEM_SIZE];
-}
-
-bool stackIsEmpty(const Stack stack) {
-	return (stack.top == STACK_INITIAL_TOP) ? true : false;
 }
 
 void stackScan(Stack* stackPointer) {
