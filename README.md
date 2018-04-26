@@ -4,7 +4,7 @@ Integer stack functions to practice stack in UTN (Universidad Tecnológica Nacio
 
 ## Download
 
-To download you can clone the repository, or you can [click here](https://github.com/lukeshiru/utn-stack/archive/master.zip) for the zip version.
+To download you can clone the repository, or you can [click here](https://github.com/lukeshiru/utn-stack/archive/immutable.zip) for the zip version.
 
 ## Type
 
