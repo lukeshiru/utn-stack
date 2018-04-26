@@ -103,3 +103,7 @@ stackInit(&stack); // Initialize stack variable of type Stack.
 stackScan(&stack); // Displays an input message and stores the given value with stackAdd.
 stackPrint(stack); // Display all the values of the stack.
 ```
+
+## Immutable version
+
+This has an immutable implementation. Check the `immutable` branch!

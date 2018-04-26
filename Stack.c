@@ -16,6 +16,7 @@ void stackAdd(Stack* stackPointer, const int value) {
 int stackRemove(Stack* stackPointer) {
 	int value = stackPointer->values[stackPointer->top - STACK_ITEM_SIZE];
 	stackPointer->top -= STACK_ITEM_SIZE;
+	stackPointer->values = realloc(stackPointer->values, sizeof(int) * stackPointer->top);
 
 	return value;
 }
