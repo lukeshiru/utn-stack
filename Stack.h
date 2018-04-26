@@ -26,18 +26,16 @@ typedef struct {
  * @brief Stack initialization.
  *
  * @param stackPointer Stack to be initialized.
- * @return Stack* Initialized Stack.
  */
-Stack* stackInit(Stack* stackPointer);
+void stackInit(Stack* stackPointer);
 
 /**
  * @brief Add element to stack.
  *
  * @param stackPointer Target Stack.
  * @param value Value to be added.
- * @return Stack* Target Stack.
  */
-Stack* stackAdd(Stack* stackPointer, const int value);
+void stackAdd(Stack* stackPointer, const int value);
 
 /**
  * @brief Remove element from stack and return it.
@@ -77,7 +75,7 @@ void stackScan(Stack* stackPointer);
  * @param stackPointer Target Stack.
  * @return Stack* Target Stack.
  */
-Stack* stackScanLoop(Stack* stackPointer);
+void stackScanLoop(Stack* stackPointer);
 
 /**
  * @brief Prints the content of the stack

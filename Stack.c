@@ -1,20 +1,16 @@
 #include "Stack.h"
 
-Stack* stackInit(Stack* stackPointer) {
+void stackInit(Stack* stackPointer) {
 	stackPointer->top = STACK_INITIAL_TOP;
 	stackPointer->values = calloc(stackPointer->top, sizeof(int));
-
-	return stackPointer;
 }
 
-Stack* stackAdd(Stack* stackPointer, const int value) {
-	const int newTop = (*stackPointer).top + STACK_ITEM_SIZE;
+void stackAdd(Stack* stackPointer, const int value) {
+	const int newTop = stackPointer->top + STACK_ITEM_SIZE;
 
-	(*stackPointer).values = realloc((*stackPointer).values, sizeof(int) * newTop);
-	(*stackPointer).values[(*stackPointer).top] = value;
-	(*stackPointer).top = newTop;
-
-	return stackPointer;
+	stackPointer->values = realloc(stackPointer->values, sizeof(int) * newTop);
+	stackPointer->values[stackPointer->top] = value;
+	stackPointer->top = newTop;
 }
 
 int stackRemove(Stack* stackPointer) {
@@ -41,7 +37,7 @@ void stackScan(Stack* stackPointer) {
 	stackAdd(stackPointer, value);
 }
 
-Stack* stackScanLoop(Stack* stackPointer) {
+void stackScanLoop(Stack* stackPointer) {
 	char answer = 'y';
 	bool success = true;
 
@@ -53,16 +49,14 @@ Stack* stackScanLoop(Stack* stackPointer) {
 			answer = getchar();
 		}
 	}
-
-	return stackPointer;
 }
 
 void stackPrint(const Stack stack) {
 	int index = STACK_INITIAL_TOP;
 	if (stackIsEmpty(stack)) {
-		puts("\n\nStack is empty.\n");
+		puts("\nStack is empty.\n");
 	} else {
-		printf("\n\nStack elements (%d):\n| ", stack.top);
+		printf("\nStack elements (%d):\n| ", stack.top);
 		while (index < stack.top) {
 			printf("%d | ", stack.values[index++]);
 		}
