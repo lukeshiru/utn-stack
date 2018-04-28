@@ -55,14 +55,11 @@ void stackScanLoop(Stack* stackPointer) {
 }
 
 void stackPrint(const Stack stack) {
-	int index = STACK_INITIAL_TOP;
-	if (stackIsEmpty(stack)) {
-		puts("\nStack is empty.\n");
-	} else {
-		printf("\nStack elements (%d):\n| ", stack.top);
-		while (index < stack.top) {
-			printf("%d | ", stack.values[index++]);
-		}
-		puts("\n");
+	int index = stack.top - STACK_ITEM_SIZE;
+	printf("\nStack (%d) [(Top) ", stack.top);
+	while (index >= STACK_INITIAL_TOP) {
+		printf("%d%s", stack.values[index], index - STACK_ITEM_SIZE < STACK_INITIAL_TOP ? " " : ", ");
+		index -= 1;
 	}
+	puts("(Bottom)]\n");
 }
